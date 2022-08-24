@@ -1,4 +1,4 @@
-package com.nitinrane.learning.java;
+package com.nitinrane.learning.java.v18;
 
 import java.util.Scanner;
 import java.util.regex.MatchResult;

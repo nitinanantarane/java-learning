@@ -1,4 +1,4 @@
-package com.nitinrane.learning.java;
+package com.nitinrane.learning.java.v18;
 
 public class MultipleClassesInSameFile {
     public static void main(String args[]) {
