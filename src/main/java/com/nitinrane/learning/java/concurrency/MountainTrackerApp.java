@@ -1,35 +1,16 @@
 package com.nitinrane.learning.java.concurrency;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MountainTrackerApp {
 
     public static final int TOTAL_TRACKERS = 5;
     public static final int TOTAL_CHECK_POINTS = 5;
-    private static List<Thread> trackers = new ArrayList<>();
-
-    public static boolean completed() {
-        for (Thread t : trackers) {
-            //System.out.println(t.getName() + " alive " + t.isAlive());
-            if (t.isAlive()) {
-                return false;
-            }
-        }
-
-        return true;
-    }
 
     public static void main(String[] args) throws InterruptedException {
         MountEverest mountEverest = new MountEverest();
 
         for (int i = 0; i < TOTAL_TRACKERS; i++) {
-            Thread thread = new Thread((new TrackerTask(mountEverest)));
-            trackers.add(thread);
-            thread.start();
+            new Thread((new TrackerTask(mountEverest))).start();
         }
-
-        new Thread(new Notifier(mountEverest)).start();
 
         System.out.println("Main exits");
     }
@@ -49,33 +30,11 @@ class MountEverest {
             //System.out.println(Thread.currentThread().getName() + " waiting..");
             wait();
             //System.out.println(Thread.currentThread().getName() + " awake..");
-        }
-    }
-
-    public synchronized void notifyAllSignal() {
-        if (flag) {
+        } else {
             notifyAll();
         }
     }
 
-}
-
-class Notifier implements Runnable {
-
-    private MountEverest mountEverest;
-
-    Notifier(MountEverest mountEverest) {
-        this.mountEverest = mountEverest;
-    }
-
-    @Override
-    public void run() {
-        while(! MountainTrackerApp.completed()) {
-            mountEverest.notifyAllSignal();
-        }
-
-        System.out.println("Notifier exits");
-    }
 }
 class TrackerTask implements Runnable {
 
