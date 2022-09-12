@@ -11,6 +11,6 @@ public class BiConsumerApp {
                         }
                 };
 
-                biConsumer.accept(new Random(314L), 5);
+                biConsumer.accept(new Random(), 5);
         }
 }
