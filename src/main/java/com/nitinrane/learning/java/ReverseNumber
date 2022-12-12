@@ -1,0 +1,20 @@
+package com.nitinrane.learning.java;
+
+public class ReverseNumber {
+    public static void main(String args[]) {
+        int ten_mod = 10;
+        int sampleNumber = 123456;
+        int reverse = 0;
+
+        int quo = sampleNumber/ten_mod;
+        int rmn = sampleNumber%ten_mod;
+        while (rmn != 0) {
+            reverse = reverse * 10 + rmn;
+            rmn = quo%ten_mod;
+            quo = quo/ten_mod;
+
+        }
+        
+        System.out.println(reverse);
+    }
+}
