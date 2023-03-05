@@ -1,4 +1,4 @@
-package com.workshop.tij.flowcontrol;
+package com.workshop.tij.flow;
 
 import static com.workshop.tij.util.Range.range;
 

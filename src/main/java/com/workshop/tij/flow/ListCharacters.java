@@ -1,4 +1,4 @@
-package com.workshop.tij.flowcontrol;
+package com.workshop.tij.flow;
 
 public class ListCharacters {
     public static void main(String[] args) {

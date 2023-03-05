@@ -1,4 +1,4 @@
-package com.workshop.tij.flowcontrol;
+package com.workshop.tij.flow;
 
 public class WhileTest {
     static boolean condition() {
